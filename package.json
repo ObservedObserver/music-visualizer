@@ -1,0 +1,20 @@
+{
+  "name": "music-visualizer",
+  "version": "1.0.0",
+  "description": "a visualization tool of music",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel ./index.html"
+  },
+  "keywords": [],
+  "prettier": {
+    "tabWidth": 4
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@antv/coord": "^0.3.0",
+    "@antv/g2": "^4.0.12",
+    "typescript": "^3.9.6"
+  }
+}
