@@ -3,7 +3,7 @@ import { Record } from '../interfaces';
 
 export interface BaseChartProps {
     container: HTMLDivElement;
-    data: number[];
+    data: Record[];
     width?: number;
     height?: number;
     baseColor?: string;
@@ -22,7 +22,8 @@ export class BaseChart {
         this.index = 0;
         this.data = [];
         for (let i = 0; i < props.data.length; i++) {
-            this.appendPureData(props.data[i]);
+            // this.appendPureData(props.data[i]);
+            this.appendRecord(props.data[i])
         }
         this.chart = new Chart({
             container: props.container,
@@ -54,6 +55,9 @@ export class BaseChart {
     public draw() {
         this.spec();
         this.chart.render();
+    }
+    public appendRecord(record: Record) {
+        this.data.push(record);
     }
     private appendPureData (data: number) {
         this.data.push({

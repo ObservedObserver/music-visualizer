@@ -1,7 +1,9 @@
 import { BaseChart, BaseChartProps } from "./base";
+import { Record } from '../interfaces';
+
 interface BeatChartProps extends BaseChartProps {
     container: HTMLDivElement;
-    data: number[],
+    data: Record[],
     baseColor?: string;
 }
 export class Beat extends BaseChart {

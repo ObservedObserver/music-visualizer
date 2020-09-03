@@ -1,4 +1,9 @@
-export function setUpAnalyser(player: HTMLMediaElement): AnalyserNode {
+export interface IAnalyser {
+    analyser: AnalyserNode;
+    source: MediaElementAudioSourceNode;
+    audioContext: AudioContext;
+}
+export function setUpAnalyser(player: HTMLMediaElement): IAnalyser {
     const audioContext = new window.AudioContext();
     audioContext.resume();
     const analyser = audioContext.createAnalyser();
@@ -6,5 +11,9 @@ export function setUpAnalyser(player: HTMLMediaElement): AnalyserNode {
     source.connect(analyser);
     analyser.connect(audioContext.destination);
     analyser.fftSize = 2 ** 12;
-    return analyser;
+    return {
+        analyser,
+        audioContext,
+        source
+    };
 }
